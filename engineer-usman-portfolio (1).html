@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<script>document.documentElement.classList.add('js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Usman — Content Creator & Social Media Manager</title>
 <meta name="description" content="Usman helps Web3 projects grow through clear storytelling — content creation, social media management, and community campaigns." />
@@ -119,8 +120,9 @@
   .scroll-hint .line::after{content:"";position:absolute;left:-46px;top:0;height:100%;width:46px;background:var(--accent);animation:slide 2.2s infinite}
   @keyframes slide{0%{left:-46px}60%,100%{left:46px}}
 
-  /* fade-up util */
-  .fade{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+  /* fade-up util — hidden state only applies when JS is active, so the page is never blank if JS fails */
+  .fade{transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+  .js .fade{opacity:0;transform:translateY(26px)}
   .fade.in{opacity:1;transform:none}
 
   /* ---------- STATS ---------- */
@@ -651,8 +653,13 @@
 </footer>
 
 <script>
+  // safety net: if anything below errors or runs slowly, reveal everything so the page is never blank
+  setTimeout(function () {
+    document.querySelectorAll('.fade').forEach(function (el) { el.classList.add('in'); });
+  }, 3000);
+
   // year
-  document.getElementById('yr').textContent = new Date().getFullYear();
+  try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch (e) {}
 
   // header scroll state
   const header = document.getElementById('header');
@@ -670,13 +677,20 @@
     setTimeout(() => el.classList.add('in'), 120 + d);
   });
 
-  // scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade:not(.hero .fade)').forEach(el => io.observe(el));
+  // scroll reveal — uses .closest() instead of a complex :not() selector,
+  // which some in-app (X, Telegram) and older mobile browsers reject by throwing.
+  let io = null;
+  if ('IntersectionObserver' in window) {
+    io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade').forEach((el) => { if (!el.closest('.hero')) io.observe(el); });
+  } else {
+    document.querySelectorAll('.fade').forEach((el) => el.classList.add('in'));
+  }
+  const observe = (el) => { if (io) { io.observe(el); } else { el.classList.add('in'); } };
 
   // portfolio data
   const projects = [
@@ -716,7 +730,7 @@
         <div class="res">✦ <b>Result:</b> ${p.res}</div>
       </div>`;
     pg.appendChild(el);
-    io.observe(el);
+    observe(el);
   });
 
   // gallery tiles
@@ -738,7 +752,7 @@
     el.style.background = `linear-gradient(150deg,${t.c[0]},${t.c[1]})`;
     el.innerHTML = `<span>${t.l}</span>`;
     gal.appendChild(el);
-    io.observe(el);
+    observe(el);
   });
 
   // contact -> mailto
