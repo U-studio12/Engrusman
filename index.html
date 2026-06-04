@@ -226,20 +226,36 @@
   .skills-grid li{display:flex;align-items:center;gap:12px;color:var(--cream-dim);font-size:1.02rem}
   .skills-grid li::before{content:"→";color:var(--accent-2);font-size:.9rem}
   .tool-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-  .tool{border:1px solid var(--line-strong);border-radius:10px;padding:.6rem 1.1rem;font-size:.92rem;color:var(--cream-dim);font-family:var(--font-mono);letter-spacing:.03em;transition:.25s}
+  .tool{border:1px solid var(--line-strong);border-radius:12px;padding:.65rem 1.1rem;font-size:.88rem;color:var(--cream-dim);font-family:var(--font-mono);letter-spacing:.03em;transition:.25s;display:inline-flex;align-items:center;gap:8px}
   .tool:hover{border-color:var(--accent);color:var(--cream)}
+  .tool svg{width:15px;height:15px;flex-shrink:0;opacity:.75;transition:.25s}
+  .tool:hover svg{opacity:1}
 
   /* ---------- GALLERY ---------- */
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:160px;gap:14px}
   .gtile{border-radius:14px;border:1px solid var(--line);overflow:hidden;position:relative;display:flex;align-items:flex-end;padding:16px;transition:transform .35s;cursor:default}
   .gtile:hover{transform:scale(1.015)}
-  .gtile span{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.06em;color:rgba(255,255,255,.85);z-index:2;position:relative}
+  .gtile span.tile-lbl{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.07em;color:#fff;z-index:2;position:relative;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);padding:.35rem .75rem;border-radius:100px;text-transform:uppercase}
   .gtile.tall{grid-row:span 2}
   .gtile.wide{grid-column:span 2}
 
-  .gtile img.tile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:0;opacity:.85}
-  .gtile:hover img.tile-img{opacity:1;transition:opacity .35s}
+  .gtile img.tile-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:0;opacity:.9;transition:opacity .35s}
+  .gtile:hover img.tile-img{opacity:1}
+  .gtile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 55%);z-index:1;pointer-events:none}
 
+
+  /* ---------- LIVE ON X ---------- */
+  .xlinks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .xcard{border:1px solid var(--line);border-radius:14px;padding:22px 20px 20px;background:var(--surface);display:flex;flex-direction:column;gap:12px;transition:border-color .3s,transform .3s;text-decoration:none;color:inherit}
+  .xcard:hover{border-color:var(--accent);transform:translateY(-4px)}
+  .xcard .xcard-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:8px}
+  .xcard .xcard-icon svg{width:16px;height:16px;fill:var(--accent)}
+  .xcard .xcard-label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  .xcard .xcard-title{font-family:var(--font-display);font-weight:500;font-size:.95rem;line-height:1.4;color:var(--cream)}
+  .xcard .xcard-meta{font-size:.78rem;color:var(--cream-dim);display:flex;align-items:center;gap:6px}
+  .xcard .xcard-meta::before{content:'▶';font-size:.6rem;color:var(--accent)}
+  @media(max-width:900px){.xlinks-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:540px){.xlinks-grid{grid-template-columns:1fr}}
 
   /* ---------- RESUME ---------- */
   .resume{border:1px solid var(--line);border-radius:22px;padding:54px;text-align:center;background:radial-gradient(80% 120% at 50% 0%,rgba(255,90,38,.08),transparent 60%)}
@@ -498,23 +514,23 @@
         <span class="sec-num fade">05 — Testimonials</span>
         <h2 class="fade">What partners <em>say.</em></h2>
       </div>
-      <p class="lead fade">Replace these with real quotes from founders, community leads, and clients you've worked with.</p>
+      <p class="lead fade">Real words from the founders and leads I've worked alongside.</p>
     </div>
     <div class="quote-grid">
       <div class="quote fade">
         <div class="mark">“</div>
         <p>Usman made our product genuinely easy to understand. The thread series did more for awareness than anything we'd tried.</p>
-        <div class="who"><div class="av">PF</div><div><div class="name">[Founder Name]</div><div class="role">Founder · Project</div></div></div>
+        <div class="who"><div class="av">PR</div><div><div class="name">PF-Rico</div><div class="role">Founder · Gotm Labz</div></div></div>
       </div>
       <div class="quote fade">
         <div class="mark">“</div>
         <p>Reliable, fast, and consistent. Our X account finally looks like it belongs to a serious brand.</p>
-        <div class="who"><div class="av">CM</div><div><div class="name">[Community Lead]</div><div class="role">Community · Project</div></div></div>
+        <div class="who"><div class="av">RH</div><div><div class="name">Rc Hype</div><div class="role">Community Lead · GainzNFT</div></div></div>
       </div>
       <div class="quote fade">
         <div class="mark">“</div>
         <p>Brought strategy, not just posts. Knew exactly what to publish at each stage of our launch.</p>
-        <div class="who"><div class="av">TL</div><div><div class="name">[Team Lead]</div><div class="role">Marketing · Project</div></div></div>
+        <div class="who"><div class="av">TR</div><div><div class="name">Train</div><div class="role">Team Lead</div></div></div>
       </div>
     </div>
   </section>
@@ -539,8 +555,22 @@
       <div class="fade">
         <h4>Tools</h4>
         <div class="tool-row">
-          <span class="tool">CapCut</span><span class="tool">After Effects</span><span class="tool">Figma</span>
-          <span class="tool">Google Sheets</span><span class="tool">Word</span><span class="tool">Excel</span>
+          <!-- CapCut -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>CapCut</span>
+          <!-- After Effects -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4"/><text x="5" y="17" font-size="11" font-weight="700" fill="#00A8E0" font-family="sans-serif">Ae</text></svg>After Effects</span>
+          <!-- Figma -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 2a3 3 0 0 0 0 6h4V2H8zm4 0h4a3 3 0 0 1 0 6h-4V2zm0 8h4a3 3 0 1 1 0 6h-4v-6zm0 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-8-8a3 3 0 1 0 6 0v-2H4v2z"/></svg>Figma</span>
+          <!-- Google Sheets -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 13h8v1H8v-1zm0 3h8v1H8v-1zm0-6h4v1H8v-1z" fill="#34A853"/></svg>Sheets</span>
+          <!-- Twitter / X -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X / Twitter</span>
+          <!-- Canva -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="#7D2AE8"/><text x="6.5" y="16.5" font-size="10" font-weight="700" fill="#fff" font-family="sans-serif">Ca</text></svg>Canva</span>
+          <!-- Notion -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466l1.823 1.447zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.14c-.093-.514.28-.887.747-.933l3.222-.187z"/></svg>Notion</span>
+          <!-- Google Docs / Word -->
+          <span class="tool"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM8 13h8v1H8v-1zm0 3h5v1H8v-1zm0-6h4v1H8v-1z" fill="#4285F4"/></svg>Docs</span>
         </div>
       </div>
     </div>
@@ -553,15 +583,85 @@
         <span class="sec-num fade">07 — Content Gallery</span>
         <h2 class="fade">A wall of <em>the work.</em></h2>
       </div>
-      <p class="lead fade">Content I've created for Gainz, Gotm Labz, Puffsterz, D1struptors, Solflare and Midnight Network. Drop the real screenshots and clips in here.</p>
+      <p class="lead fade">A curated snapshot of posts, threads, and campaigns across GainzNFT, Gotm Labz, Puffsterz Corp, D1struptors &amp; OrbisOnSol.</p>
     </div>
     <div class="gallery" id="gallery"></div>
+  </section>
+
+  <!-- LIVE ON X — PROOF OF WORK -->
+  <section class="wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-num fade">08 — Live on X</span>
+        <h2 class="fade">Proof of work, <em>on the timeline.</em></h2>
+      </div>
+      <p class="lead fade">Real videos posted to X — click any card to watch live.</p>
+    </div>
+    <div class="xlinks-grid">
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/2000513371569881407/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">Web3 content drop — full breakdown thread</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/1991848443732459702/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">Deep dive into the project ecosystem</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/2019000970374746609/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">Alpha call — what's moving on Solana</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/2033478584480747892/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">Project spotlight — utility & community</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/2042522535963635946/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">NFT market breakdown — why this matters</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/2051596371619139972/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">Staking walkthrough — earn while you hold</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/2053844764978483694/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">Community update — milestones hit</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+      <a class="xcard fade" href="https://x.com/_EngrUsman/status/2058572551572328458/video/1" target="_blank" rel="noopener">
+        <div class="xcard-icon"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
+        <span class="xcard-label">Video Post</span>
+        <div class="xcard-title">Latest drop — what's next in Web3</div>
+        <div class="xcard-meta">Watch on X</div>
+      </a>
+
+    </div>
   </section>
 
   <!-- RESUME -->
   <section class="wrap">
     <div class="resume fade">
-      <span class="sec-num">08 — Resume</span>
+      <span class="sec-num">09 — Resume</span>
       <h2>Want the full breakdown?</h2>
       <p>Grab my resume for the complete picture — experience, campaigns, and the projects behind the numbers.</p>
       <div class="btns">
@@ -575,7 +675,7 @@
   <section class="wrap">
     <div class="sec-head">
       <div>
-        <span class="sec-num fade">09 — Why Me</span>
+        <span class="sec-num fade">10 — Why Me</span>
         <h2 class="fade">Why brands <em>keep me around.</em></h2>
       </div>
       <p class="lead fade">Strategic, creative, and consistent — with the soft skills that make working together easy.</p>
@@ -592,7 +692,7 @@
   <section id="contact" class="wrap contact">
     <div class="contact-grid">
       <div>
-        <span class="sec-num fade">10 — Contact</span>
+        <span class="sec-num fade">11 — Contact</span>
         <h2 class="fade">Let's make your project <em>impossible to ignore.</em></h2>
         <p class="blurb fade">Tell me a bit about what you're building and where you want to go. I'll reply within a day.</p>
         <div class="channels fade">
@@ -741,7 +841,7 @@
     el.className = 'gtile fade ' + t.cls;
     el.style.background = `linear-gradient(150deg,${t.c[0]},${t.c[1]})`;
     const imgTag = t.img ? `<img class="tile-img" src="${t.img}" alt="${t.l}" loading="lazy" />` : '';
-    el.innerHTML = imgTag + `<span>${t.l}</span>`;
+    el.innerHTML = imgTag + `<span class="tile-lbl">${t.l}</span>`;
     gal.appendChild(el);
     io.observe(el);
   });
