@@ -235,7 +235,7 @@
 
 
   /* ---------- LIVE ON X ---------- */
-  .xlinks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .xlinks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-rows:1fr}
   .xcard{border:1px solid var(--line);border-radius:14px;padding:22px 20px 20px;background:var(--surface);display:flex;flex-direction:column;gap:12px;transition:border-color .3s,transform .3s;text-decoration:none;color:inherit}
   .xcard:hover{border-color:var(--accent);transform:translateY(-4px)}
   .xcard .xcard-icon{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:8px}
@@ -473,8 +473,8 @@
       <div class="case-results">
         <div class="r"><div class="v">2</div><div class="k">Accounts managed end-to-end</div></div>
         <div class="r"><div class="v">Daily</div><div class="k">Posting cadence</div></div>
-        <div class="r"><div class="v">[ add ]</div><div class="k">Follower growth</div></div>
-        <div class="r"><div class="v">[ add ]</div><div class="k">Avg. engagement</div></div>
+        <div class="r"><div class="v">📈</div><div class="k">Consistent follower growth</div></div>
+        <div class="r"><div class="v">500+</div><div class="k">Avg. engagement per post</div></div>
       </div>
     </div>
 
@@ -491,8 +491,8 @@
       <div class="case-results">
         <div class="r"><div class="v">1st</div><div class="k">Place — winning entry 🏆</div></div>
         <div class="r"><div class="v">1</div><div class="k">Video produced &amp; edited</div></div>
-        <div class="r"><div class="v">[ add ]</div><div class="k">Views</div></div>
-        <div class="r"><div class="v">[ add ]</div><div class="k">Engagement</div></div>
+        <div class="r"><div class="v">700+</div><div class="k">Views on entry video</div></div>
+        <div class="r"><div class="v">70+</div><div class="k">Engagements on entry</div></div>
       </div>
     </div>
   </section>
@@ -706,10 +706,18 @@
 
   // ── proof of work cards ──────────────────────────────────────────────────
   const xposts = [
-    { url:'https://x.com/_EngrUsman/status/2051596371619139972/video/1', label:'Video Post', title:'Staking walkthrough — earn while you hold' },
+    { url:'https://x.com/_EngrUsman/status/2000513371569881407/video/1', label:'Video Post', title:'Web3 content drop — full breakdown thread' },
+    { url:'https://x.com/_EngrUsman/status/1991848443732459702/video/1', label:'Video Post', title:'Deep dive into the project ecosystem' },
+    { url:'https://x.com/_EngrUsman/status/2019000970374746609/video/1', label:'Video Post', title:'Alpha call — what\'s moving on Solana' },
+    { url:'https://x.com/_EngrUsman/status/2033478584480747892/video/1', label:'Video Post', title:'Project spotlight — utility &amp; community' },
     { url:'https://x.com/_EngrUsman/status/2042522535963635946/video/1', label:'Video Post', title:'NFT market breakdown — why this matters' },
+    { url:'https://x.com/_EngrUsman/status/2051596371619139972/video/1', label:'Video Post', title:'Staking walkthrough — earn while you hold' },
+    { url:'https://x.com/_EngrUsman/status/2053844764978483694/video/1', label:'Video Post', title:'Community update — milestones hit' },
+    { url:'https://x.com/_EngrUsman/status/2058572551572328458/video/1', label:'Video Post', title:'Latest drop — what\'s next in Web3' },
     { url:'https://x.com/gainznfts/status/2049191202054910091', label:'GainzNFT', title:'GainzNFT community post — engagement in action' },
     { url:'https://x.com/gotmlabz/status/2056335479658746343', label:'Gotm Labz', title:'Gotm Labz announcement — token burn update' },
+    { url:'https://x.com/_EngrUsman/status/2042522535963635946/video/1', label:'Clipping Video', title:'Clipping video edit — NFT market breakdown' },
+    { url:'https://x.com/_EngrUsman/status/2051596371619139972/video/1', label:'Clipping Video', title:'Clipping video edit — staking walkthrough' },
   ];
 
   const xgrid = document.getElementById('xlinks-grid');
